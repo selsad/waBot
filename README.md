@@ -1,4 +1,4 @@
-# WhatsApp Bot
+# WhatsApp Message Bot
 Very simple python script to do certain tasks interactively by reading messages sent by user. 
 
 # Information
