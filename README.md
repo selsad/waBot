@@ -1,4 +1,4 @@
-# WhatsApp Message Bot
+# WhatsApp Bot
 Very simple python script to do certain tasks interactively by reading messages sent by user. 
 
 # Information
@@ -7,4 +7,4 @@ Script opens an Google Chrome instance, load web.whatsapp.com, capture QR code u
 # Requirements
 - Linux or Windows running machine (hasn't been tested on other OSs).
 - Beginner level knowledge on how to use a computer, to be able to read and understand basic English.
-- A little bit of patience, because i suck at programming and probably you will face some issues which obviously contradict previous statement. w
+- A little bit of patience, because i suck at programming and probably you will face some issues which obviously contradict previous statement.
