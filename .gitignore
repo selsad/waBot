@@ -127,4 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-qrCode.png
+assets/qrCode.png
+.vscode/settings.json
