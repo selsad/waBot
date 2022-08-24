@@ -3,9 +3,8 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 
-from email.mime import image
 from pathlib import Path
-
+from time import sleep
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
@@ -16,7 +15,9 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 
 button_1 = None
 image_image_4 = None
+image_image_3 = None
 click_count = 0
+isDestroyed = False
 
 
 def relative_to_assets(path: str) -> Path:
@@ -49,8 +50,9 @@ def GUI():
         image=image_image_1
     )
 
+    global image_image_3
     image_image_3 = PhotoImage(
-        file=relative_to_assets("qrCode.png"))
+        file=relative_to_assets("qrCode_placeholder.png"))
     image_3 = canvas.create_image(
         700.0,
         200.0,
@@ -102,9 +104,8 @@ def GUI():
     button_1.bind("<Leave>", on_leave)
     button_1.bind("<Button-1>", on_click)
     window.resizable(False, False)
-    window.protocol("WM_DELETE_WINDOW", lambda: [window.destroy()])
+    window.protocol("WM_DELETE_WINDOW", lambda: [window.destroy(), destroy()])
     window.mainloop()
-    return -1
 
 
 def on_enter(e):
@@ -158,7 +159,6 @@ def on_click(e):
         button_1["image"] = button_image_1
         button_1.image = button_image_1
         isRunning(e, "image_2.png")
-        
 
 
 def isRunning(e, image_is_running):
@@ -170,3 +170,21 @@ def isRunning(e, image_is_running):
         307.0,
         image=image_image_4
     )
+
+
+def updateQRCode():
+    global image_image_3
+    while True:
+        sleep(5)
+        image_image_3 = PhotoImage(
+            file=relative_to_assets("qrCode.png"))
+        image_3 = canvas.create_image(
+            700.0,
+            200.0,
+            image=image_image_3
+        )
+
+
+def destroy():
+    global isDestroyed
+    isDestroyed = True
